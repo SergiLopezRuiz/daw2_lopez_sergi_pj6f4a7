@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- explicación: metadatos y enlace al CSS propio -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create Order – The Tree of Books</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- explicación: contenedor principal centrado -->
+  <main class="container">
+    <section class="card" style="max-width:900px;text-align:left;">
+      <h1 class="app-title">Create Order</h1>
+      <p class="tagline">Fill out all customer details and select the books to include</p>
+
+      <!-- explicación: formulario -->
+      <form id="orderForm" autocomplete="off">
+        <h2>Customer Information</h2>
+
+        <!-- Full name: solo letras y espacios -->
+        <label>Full name:<br>
+          <input type="text" name="fullName" placeholder="John Smith" required
+                 pattern="^[A-Za-zÀ-ÿ\s]{2,60}$"
+                 title="Only letters and spaces (2–60 chars)" />
+        </label><br><br>
+
+        <!-- Email: exactamente correo@gmail.com -->
+        <label>Email*<br>
+        <input type="email" name="email" placeholder="example@gmail.com" required
+            pattern="^[A-Za-z0-9._%+-]+@gmail\.com$"
+            title="Email must end with @gmail.com" />
+        </label><br><br>
+
+
+        <!-- Phone: solo números -->
+        <label>Phone (mobile)*<br>
+            <input type="tel" name="phone" placeholder="658907512" required
+                inputmode="numeric" pattern="^[0-9]{9,15}$"
+                title="Only digits (9–15 numbers)" />
+        </label>
+<br><br>
+
+        <!-- Address -->
+        <label>Address<br>
+          <input type="text" name="address" placeholder="Street, number, city" />
+        </label>
+
+        <hr style="margin:1.5rem 0;border:.5px solid rgba(255,255,255,0.1)">
+
+        <!-- Order ID -->
+        <label>Order ID*<br>
+          <input type="text" name="orderId" placeholder="ORD001" required />
+        </label>
+
+        <hr style="margin:1.5rem 0;border:.5px solid rgba(255,255,255,0.1)">
+
+        <!-- Books section -->
+        <h2>Books (choose from these 4)</h2>
+
+        <div class="books-grid">
+          <!-- 1) The Dragon of Fortune -->
+          <div class="card book-card">
+            <img class="book-img" src="img/books/dragon-of-fortune.jpg" alt="The Dragon of Fortune" >
+            <div>
+              <div>
+                <span class="book-title">“The Dragon of Fortune”</span>
+                <span class="book-price">— €13.99</span>
+              </div>
+              <p class="book-desc">An epic Kingdom of Fantasy adventure where Geronimo faces riddles, dragons, and daring quests.</p>
+              <label class="qty-row">
+                <input type="checkbox" class="enableQty" />
+                <span>Qty</span>
+                <input type="number" class="qty" name="qty[]" min="0" value="0" disabled style="width:70px;">
+              </label>
+              <input type="hidden" name="productName[]" value="The Dragon of Fortune">
+              <input type="hidden" name="price[]" value="13.99">
+            </div>
+          </div>
+
+          <!-- 2) The Last Algorithm -->
+          <div class="card book-card">
+            <img class="book-img" src="img/books/the-last-algorithm.jpg" alt="The Last Algorithm">
+            <div>
+              <div>
+                <span class="book-title">“The Last Algorithm”</span>
+                <span class="book-price">— €14.99</span>
+              </div>
+              <p class="book-desc">In an AI-ruled world, a rogue coder uncovers the final piece of code that could set humanity free.</p>
+              <label class="qty-row">
+                <input type="checkbox" class="enableQty" />
+                <span>Qty</span>
+                <input type="number" class="qty" name="qty[]" min="0" value="0" disabled style="width:70px;">
+              </label>
+              <input type="hidden" name="productName[]" value="The Last Algorithm">
+              <input type="hidden" name="price[]" value="14.99">
+            </div>
+          </div>
+
+          <!-- 3) A Whisper in the Attic -->
+          <div class="card book-card">
+            <img class="book-img" src="img/books/a-whisper-in-the-attic.jpg" alt="A Whisper in the Attic">
+            <div>
+              <div>
+                <span class="book-title">“A Whisper in the Attic”</span>
+                <span class="book-price">— €11.50</span>
+              </div>
+              <p class="book-desc">A chilling tale of buried family secrets hidden in dusty diaries and an old house’s dark corners.</p>
+              <label class="qty-row">
+                <input type="checkbox" class="enableQty" />
+                <span>Qty</span>
+                <input type="number" class="qty" name="qty[]" min="0" value="0" disabled style="width:70px;">
+              </label>
+              <input type="hidden" name="productName[]" value="A Whisper in the Attic">
+              <input type="hidden" name="price[]" value="11.50">
+            </div>
+          </div>
+
+          <!-- 4) Letters Across the Sea -->
+          <div class="card book-card">
+            <img class="book-img" src="img/books/letters-across-the-sea.jpg" alt="Letters Across the Sea">
+            <div>
+              <div>
+                <span class="book-title">“Letters Across the Sea”</span>
+                <span class="book-price">— €12.99</span>
+              </div>
+              <p class="book-desc">A moving love story spanning decades, where wartime letters carry hope across oceans.</p>
+              <label class="qty-row">
+                <input type="checkbox" class="enableQty" />
+                <span>Qty</span>
+                <input type="number" class="qty" name="qty[]" min="0" value="0" disabled style="width:70px;">
+              </label>
+              <input type="hidden" name="productName[]" value="Letters Across the Sea">
+              <input type="hidden" name="price[]" value="12.99">
+            </div>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top:1rem;justify-content:flex-start;">
+          <button type="submit" class="btn btn-primary">Submit Order</button>
+          <button type="reset" class="btn" id="btnReset">Reset</button>
+        </div>
+      </form>
+
+      <!-- Server result -->
+      <div id="result" class="card" style="margin-top:1rem;display:none;">
+        <h2>Server response</h2>
+        <p id="resultText">Waiting for response...</p>
+      </div>
+    </section>
+
+    <nav class="actions" style="margin-top:2rem;">
+      <button id="goMenu" class="btn">⬅ Back to Menu</button>
+      <button id="goHome" class="btn">Home</button>
+    </nav>
+
+    <footer class="footer">
+      <small>© 2025 The Tree of Books Inc.</small>
+    </footer>
+  </main>
+
+  <!-- explicación: JS que controla validaciones extra, qty y envío a PHP -->
+  <script src="js/createOrder.js"></script>
+</body>
+</html>

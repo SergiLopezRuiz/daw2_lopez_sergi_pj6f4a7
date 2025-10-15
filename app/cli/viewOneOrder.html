@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>View One Order – The Tree of Books</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card" style="max-width: 750px; text-align: left;">
+      <h1 class="app-title">View One Order</h1>
+      <p class="tagline">Enter an Order ID to see its details</p>
+
+      <!-- GET para ver el ID en la URL -->
+      <form action="../srv/viewOneOrder.php" method="get" style="margin-top:1rem;">
+        <label>Order ID*<br>
+          <input type="text" name="orderId" placeholder="e.g., ORD001" required />
+        </label>
+        <div class="actions" style="margin-top: 1rem; justify-content:flex-start;">
+          <button type="submit" class="btn btn-primary">Search</button>
+          <button type="reset" class="btn">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <nav class="actions" style="margin-top: 1.5rem;">
+      <button class="btn" onclick="location.href='menu.html'">⬅ Back to Menu</button>
+      <button class="btn" onclick="location.href='index.html'">Home</button>
+    </nav>
+
+    <footer class="footer">
+      <small>© 2025 The Tree of Books Inc.</small>
+    </footer>
+  </main>
+</body>
+</html>

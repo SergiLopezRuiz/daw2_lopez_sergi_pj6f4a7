@@ -1,0 +1,204 @@
+/* explicación: variables globales de color y tipografía */
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #2563eb;
+  --primary-contrast: #ffffff;
+}
+
+/* explicación: reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: radial-gradient(1200px 600px at 50% -20%, #1f2937 0%, var(--bg) 60%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans";
+}
+
+/* explicación: contenedor principal centrado */
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* explicación: tarjeta principal (logo y título) */
+.hero {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transition: transform 0.2s ease;
+}
+
+.hero:hover {
+  transform: translateY(-2px);
+}
+
+/* explicación: logo centrado */
+.logo {
+  width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+  border-radius: 12px;
+}
+
+/* explicación: título y subtítulo */
+.app-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+}
+
+.tagline {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* explicación: sección “card” (contenido tipo about o listas) */
+.card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 1.5rem 2rem;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+.card h2 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.card ul {
+  margin-left: 1.5rem;
+  list-style: disc;
+}
+
+.card li {
+  margin: 0.4rem 0;
+}
+
+/* explicación: botones principales */
+.actions {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: #1f2937;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.06s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+/* explicación: pie de página */
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* explicación: centra el contenido vertical y horizontalmente */
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* centrado horizontal */
+  justify-content: center;  /* centrado vertical */
+  padding: 2rem;
+  text-align: center;       /* centra títulos */
+}
+
+/* explicación: rejilla 2x2 para los libros */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: .75rem;
+  width: 100%;
+}
+
+/* explicación: tarjeta de libro con imagen + texto */
+.book-card {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 96px 1fr; /* imagen + detalles */
+  gap: .75rem;
+  align-items: start;
+  padding: 1rem;
+}
+
+/* explicación: imagen del libro */
+.book-card .book-img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.35));
+}
+
+/* explicación: nombre, precio y descripción */
+.book-card .book-title {
+  font-weight: 700;
+}
+.book-card .book-price {
+  color: var(--muted);
+  font-size: .95rem;
+  margin-left: .25rem;
+}
+.book-card .book-desc {
+  margin: .35rem 0 .5rem;
+  color: var(--text);
+  opacity: .9;
+  line-height: 1.4;
+  font-size: .95rem;
+}
+
+/* explicación: fila de cantidad */
+.book-card .qty-row {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+

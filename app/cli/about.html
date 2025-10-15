@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About / Documentation – The Tree of Books</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- explicación: contenedor principal de la documentación -->
+  <main class="container">
+    <!-- explicación: bloque descriptivo general -->
+    <section class="card" style="margin-top: 1.5rem; text-align: left; max-width: 800px;">
+      <h2>📚 Application Description</h2>
+      <p>
+        <strong>The Tree of Books</strong> is a web application designed for managing book orders
+        within a bookstore chain. In this first version, it allows company sales representatives
+        to create, view, and retrieve customer orders efficiently.
+      </p>
+
+      <h2>⚙️ Functionalities</h2>
+      <ul>
+        <li>
+          <strong>1. Home Screen:</strong> Displays the logo and main navigation buttons to access documentation and the operations menu.
+        </li>
+        <li>
+          <strong>2. About / Documentation:</strong> Explains the application’s purpose and describes how to use each available feature.
+        </li>
+        <li>
+          <strong>3. Operations Menu:</strong> Central screen that allows the user to select between creating orders, viewing all orders, or viewing a specific one.
+        </li>
+        <li>
+          <strong>4. Create Order:</strong> A form where the salesperson enters customer information and selects books with quantities and prices. The total (including VAT) is calculated automatically.
+        </li>
+        <li>
+          <strong>5. View All Orders:</strong> Displays a list of all saved orders and their totals with VAT.
+        </li>
+        <li>
+          <strong>6. View One Order:</strong> Lets the user search for a specific order by its unique ID and see all details.
+        </li>
+      </ul>
+
+      <h2>🛠️ Technical Summary</h2>
+      <ul>
+        <li>Front-end: HTML + CSS + JavaScript</li>
+        <li>Back-end: PHP (handles data storage and calculations)</li>
+        <li>Data file: <code>onlineOrders.db</code> (binary file created automatically)</li>
+        <li>Communication: HTTPS using GET and POST methods</li>
+        <li>Repository: Managed through Git and GitHub</li>
+      </ul>
+    </section>
+
+    <!-- explicación: botones de navegación -->
+    <nav class="actions" style="margin-top: 2rem;">
+      <button id="goHome" class="btn">⬅ Back to Home</button>
+      <button id="goMenu" class="btn btn-primary">Go to Menu</button>
+    </nav>
+
+    <!-- explicación: pie -->
+    <footer class="footer">
+      <small>© 2025 The Tree of Books Inc.</small>
+    </footer>
+  </main>
+
+  <script>
+    // explicación: manejadores de los botones de navegación
+    document.getElementById('goHome').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+    document.getElementById('goMenu').addEventListener('click', () => {
+      window.location.href = 'menu.html';
+    });
+  </script>
+</body>
+</html>
