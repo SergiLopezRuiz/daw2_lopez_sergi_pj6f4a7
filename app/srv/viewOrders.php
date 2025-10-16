@@ -1,5 +1,4 @@
 <?php
-// View All Orders – muestra todas las órdenes en una lista simple
 
 const DB_PATH = __DIR__ . '/../../onlineOrders/onlineOrders.db';
 
@@ -13,7 +12,6 @@ function e(string $s): string { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8')
 
 $orders = db_load();
 
-// Orden cronológico por createdAt si existe (asc)
 usort($orders, fn($a,$b) => strcmp($a['createdAt'] ?? '', $b['createdAt'] ?? ''));
 ?>
 <!doctype html>
@@ -42,12 +40,10 @@ usort($orders, fn($a,$b) => strcmp($a['createdAt'] ?? '', $b['createdAt'] ?? '')
             $tot  = $o['total'] ?? 0;
             $dt   = $o['createdAt'] ?? '';
           ?>
-            <!-- Formato requerido: orderId : fullName : totalWithVAT : createdAt -->
             <div><?= e($id) ?> : <?= e($name) ?> : €<?= number_format((float)$tot, 2) ?> : <?= e($dt) ?></div>
           <?php endforeach; ?>
         </div>
 
-        <!-- (Opcional) Detalle expandible por si el profe quiere ver items -->
         <details class="card" style="margin-top:1rem;">
           <summary><strong>Show items per order</strong></summary>
           <div style="margin-top:.75rem;">
