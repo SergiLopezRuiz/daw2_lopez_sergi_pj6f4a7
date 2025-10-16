@@ -1,13 +1,11 @@
-// explicación: hace que el campo teléfono solo acepte números mientras se escribe
 function enforceNumericPhone() {
   const phone = document.querySelector('input[name="phone"]');
   if (!phone) return;
   phone.addEventListener('input', () => {
-    phone.value = phone.value.replace(/\D+/g, ''); // elimina todo lo que no sean dígitos
+    phone.value = phone.value.replace(/\D+/g, ''); 
   });
 }
 
-// explicación: habilita o deshabilita la cantidad según el checkbox
 function handleQtyToggles() {
   document.querySelectorAll('.enableQty').forEach((cb) => {
     const qtyInput = cb.parentElement.querySelector('.qty');
@@ -18,7 +16,6 @@ function handleQtyToggles() {
     });
   });
 
-  // reset: desmarca y pone a 0
   const btnReset = document.getElementById('btnReset');
   if (btnReset) {
     btnReset.addEventListener('click', () => {
@@ -28,31 +25,26 @@ function handleQtyToggles() {
   }
 }
 
-// explicación: validaciones adicionales antes de enviar al servidor
 function extraClientValidation(form) {
   const name  = form.fullName.value.trim();
   const email = form.email.value.trim();
   const phone = form.phone.value.trim();
 
-  // validación nombre
   if (!/^[A-Za-zÀ-ÿ\s]{2,60}$/.test(name)) {
     alert('Full name: only letters and spaces (2–60 chars).');
     return false;
   }
 
-  // validación email: debe terminar en @gmail.com
   if (!/^[A-Za-z0-9._%+-]+@gmail\.com$/.test(email)) {
     alert('Email must end with @gmail.com.');
     return false;
   }
 
-  // validación teléfono: solo números, entre 9 y 15 dígitos
   if (!/^[0-9]{9,15}$/.test(phone)) {
     alert('Phone must be digits only (9–15).');
     return false;
   }
 
-  // al menos un libro seleccionado
   const anyQty = Array.from(document.querySelectorAll('.qty'))
     .some((q) => parseInt(q.value, 10) > 0);
   if (!anyQty) {
@@ -63,7 +55,6 @@ function extraClientValidation(form) {
   return true;
 }
 
-// explicación: envío del formulario por fetch() al PHP
 function handleForm() {
   const form = document.getElementById('orderForm');
   const result = document.getElementById('result');
@@ -72,7 +63,6 @@ function handleForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // validaciones cliente
     if (!extraClientValidation(form)) return;
 
     const fd = new FormData(form);
@@ -90,12 +80,10 @@ function handleForm() {
     }
   });
 
-  // navegación
   document.getElementById('goMenu').addEventListener('click', () => location.href = 'menu.html');
   document.getElementById('goHome').addEventListener('click', () => location.href = 'index.html');
 }
 
-// inicialización al cargar la página
 window.addEventListener('DOMContentLoaded', () => {
   enforceNumericPhone();
   handleQtyToggles();
