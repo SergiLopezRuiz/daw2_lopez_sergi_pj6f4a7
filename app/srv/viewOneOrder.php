@@ -1,5 +1,4 @@
 <?php
-// View One Order – muestra el pedido cuyo ID se recibe por GET ?orderId=...
 
 const DB_PATH = __DIR__ . '/../../onlineOrders/onlineOrders.db';
 
@@ -15,12 +14,10 @@ $orderId = trim($_GET['orderId'] ?? '');
 $db = db_load();
 $found = null;
 
-// nuestra “BD” normalmente está indexada por orderId
 if ($orderId !== '') {
   if (isset($db[$orderId])) {
     $found = $db[$orderId];
   } else {
-    // fallback por si está como array numérico
     foreach ($db as $o) {
       if (($o['orderId'] ?? '') === $orderId) { $found = $o; break; }
     }
