@@ -27,7 +27,6 @@
       </form>
     </section>
 
-    <!-- explicación: navegación inferior -->
     <nav class="actions" style="margin-top: 2rem;">
       <button id="goHome" class="btn">⬅ Back to Home</button>
     </nav>
@@ -37,7 +36,6 @@
     </footer>
   </main>
 
-  <!-- explicación: script para redirigir según la opción seleccionada -->
   <script>
     const form = document.getElementById('menuForm');
     form.addEventListener('submit', (e) => {
@@ -54,7 +52,6 @@
       }
     });
 
-    // volver al inicio
     document.getElementById('goHome').addEventListener('click', () => {
       window.location.href = "index.html";
     });
