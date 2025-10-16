@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 const VAT = 0.21;
 const DB_PATH = __DIR__ . '/../../onlineOrders/onlineOrders.db';
 
-// funciones básicas para gestionar el fichero
 function db_load(): array {
   if (!file_exists(DB_PATH)) { db_save([]); return []; }
   $data = @file_get_contents(DB_PATH);
@@ -30,7 +29,6 @@ function calc_total_with_vat(array $items): float {
   return round($subtotal * (1 + VAT), 2);
 }
 
-// entrada
 $orderId  = trim($_POST['orderId']  ?? '');
 $fullName = trim($_POST['fullName'] ?? '');
 $address  = trim($_POST['address']  ?? '');
