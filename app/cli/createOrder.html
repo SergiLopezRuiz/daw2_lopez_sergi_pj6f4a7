@@ -1,31 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- explicación: metadatos y enlace al CSS propio -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Create Order – The Tree of Books</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- explicación: contenedor principal centrado -->
   <main class="container">
     <section class="card" style="max-width:900px;text-align:left;">
       <h1 class="app-title">Create Order</h1>
       <p class="tagline">Fill out all customer details and select the books to include</p>
 
-      <!-- explicación: formulario -->
       <form id="orderForm" autocomplete="off">
         <h2>Customer Information</h2>
 
-        <!-- Full name: solo letras y espacios -->
         <label>Full name:<br>
           <input type="text" name="fullName" placeholder="John Smith" required
                  pattern="^[A-Za-zÀ-ÿ\s]{2,60}$"
                  title="Only letters and spaces (2–60 chars)" />
         </label><br><br>
 
-        <!-- Email: exactamente correo@gmail.com -->
         <label>Email*<br>
         <input type="email" name="email" placeholder="example@gmail.com" required
             pattern="^[A-Za-z0-9._%+-]+@gmail\.com$"
@@ -33,7 +28,6 @@
         </label><br><br>
 
 
-        <!-- Phone: solo números -->
         <label>Phone (mobile)*<br>
             <input type="tel" name="phone" placeholder="658907512" required
                 inputmode="numeric" pattern="^[0-9]{9,15}$"
@@ -41,25 +35,21 @@
         </label>
 <br><br>
 
-        <!-- Address -->
         <label>Address<br>
           <input type="text" name="address" placeholder="Street, number, city" />
         </label>
 
         <hr style="margin:1.5rem 0;border:.5px solid rgba(255,255,255,0.1)">
 
-        <!-- Order ID -->
         <label>Order ID*<br>
           <input type="text" name="orderId" placeholder="ORD001" required />
         </label>
 
         <hr style="margin:1.5rem 0;border:.5px solid rgba(255,255,255,0.1)">
 
-        <!-- Books section -->
         <h2>Books (choose from these 4)</h2>
 
         <div class="books-grid">
-          <!-- 1) The Dragon of Fortune -->
           <div class="card book-card">
             <img class="book-img" src="img/books/dragon-of-fortune.jpg" alt="The Dragon of Fortune" >
             <div>
@@ -78,7 +68,6 @@
             </div>
           </div>
 
-          <!-- 2) The Last Algorithm -->
           <div class="card book-card">
             <img class="book-img" src="img/books/the-last-algorithm.jpg" alt="The Last Algorithm">
             <div>
@@ -97,7 +86,6 @@
             </div>
           </div>
 
-          <!-- 3) A Whisper in the Attic -->
           <div class="card book-card">
             <img class="book-img" src="img/books/a-whisper-in-the-attic.jpg" alt="A Whisper in the Attic">
             <div>
@@ -115,8 +103,7 @@
               <input type="hidden" name="price[]" value="11.50">
             </div>
           </div>
-
-          <!-- 4) Letters Across the Sea -->
+          
           <div class="card book-card">
             <img class="book-img" src="img/books/letters-across-the-sea.jpg" alt="Letters Across the Sea">
             <div>
@@ -142,7 +129,6 @@
         </div>
       </form>
 
-      <!-- Server result -->
       <div id="result" class="card" style="margin-top:1rem;display:none;">
         <h2>Server response</h2>
         <p id="resultText">Waiting for response...</p>
@@ -159,7 +145,6 @@
     </footer>
   </main>
 
-  <!-- explicación: JS que controla validaciones extra, qty y envío a PHP -->
   <script src="js/createOrder.js"></script>
 </body>
 </html>
